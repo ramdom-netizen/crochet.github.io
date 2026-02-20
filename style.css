@@ -1,70 +1,165 @@
+/* Soft Sarvam-inspired Color Palette */
+:root {
+    --gradient-start: #a8c4f9; /* Soft tech blue */
+    --gradient-end: #ffcfb3;   /* Soft warm peach/orange */
+    --text-dark: #2c3e50;
+    --text-light: #ffffff;
+    --bg-light: #fafafa;
+    --card-bg: rgba(255, 255, 255, 0.7);
+}
+
 body {
-    background: linear-gradient(135deg, #1e1e1e, #121212);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
 }
 
-.calculator {
-    width: 320px;
-    background-color: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(20px);
-    padding: 20px;
-    border-radius: 40px;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+/* Smooth scrolling for the anchor links */
+html {
+    scroll-behavior: smooth;
 }
 
-.display {
-    color: white;
-    text-align: right;
-    padding: 20px;
-    font-size: 4.5rem;
-    font-weight: 200;
-    height: 140px;
+/* Hero Section */
+.hero {
+    height: 70vh;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    padding: 0 20px;
 }
 
-#previous-operand {
+.hero h1 {
+    font-size: 4rem;
+    margin: 0 0 10px 0;
+    color: var(--text-dark);
+    letter-spacing: -1px;
+}
+
+.hero p {
     font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.4);
-    height: 24px;
-}
-
-.buttons {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
+    max-width: 500px;
+    margin: 0 auto 30px auto;
+    color: rgba(44, 62, 80, 0.8);
 }
 
 .btn {
-    height: 70px;
-    width: 70px;
-    border-radius: 50%;
-    border: none;
-    font-size: 1.6rem;
-    cursor: pointer;
-    transition: all 0.15s ease;
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--text-dark);
+    color: var(--text-light);
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: transform 0.2s, background-color 0.2s;
 }
 
-.btn:active {
-    filter: brightness(1.3);
-    transform: scale(0.95);
+.btn:hover {
+    transform: translateY(-2px);
+    background-color: #1a252f;
 }
 
-.light-gray { background-color: #a5a5a5; color: black; }
-.dark-gray { background-color: #333333; color: white; }
-.orange { background-color: #ff9f0a; color: white; font-size: 2rem; }
+/* Showcase Gallery */
+.showcase {
+    padding: 80px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
 
-.zero {
-    width: 155px;
-    border-radius: 40px;
-    grid-column: span 2;
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-img {
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #fff;
+    background: linear-gradient(45deg, #d4e4ff, #ffe3d4);
+}
+
+.card-info {
+    padding: 20px;
     text-align: left;
-    padding-left: 28px;
+}
+
+.card-info h3 {
+    margin: 0 0 10px 0;
+}
+
+.card-info p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* About Section */
+.about {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, rgba(168, 196, 249, 0.2), rgba(255, 207, 179, 0.2));
+    display: flex;
+    justify-content: center;
+}
+
+.about-card {
+    max-width: 700px;
+    text-align: center;
+    background: white;
+    padding: 50px;
+    border-radius: 30px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 60px 20px 30px 20px;
+    background-color: var(--text-dark);
+    color: var(--text-light);
+}
+
+.social-links {
+    margin: 20px 0;
+}
+
+.social-links a {
+    color: var(--text-light);
+    font-size: 1.8rem;
+    margin: 0 15px;
+    text-decoration: none;
+    transition: color 0.2s, transform 0.2s;
+    display: inline-block;
+}
+
+.social-links a:hover {
+    color: var(--gradient-end);
+    transform: scale(1.1);
+}
+
+.copyright {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 40px;
 }
