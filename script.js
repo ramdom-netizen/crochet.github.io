@@ -1,74 +1,36 @@
-let currentInput = '0';
-let previousInput = '';
-let operator = null;
+// This script adds a modern fade-in effect to your product cards and about section as you scroll
 
-const currentDisplay = document.getElementById('current-operand');
-const previousDisplay = document.getElementById('previous-operand');
+document.addEventListener("DOMContentLoaded", () => {
+    const observerOptions = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.15 // Triggers when 15% of the element is visible
+    };
 
-function updateDisplay() {
-    currentDisplay.innerText = currentInput;
-    previousDisplay.innerText = operator ? `${previousInput} ${operator}` : '';
-    
-    // Auto-scale text size for long numbers
-    if (currentInput.length > 6) {
-        currentDisplay.style.fontSize = '3rem';
-    } else {
-        currentDisplay.style.fontSize = '4.5rem';
-    }
-}
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = 1;
+                entry.target.style.transform = "translateY(0)";
+                observer.unobserve(entry.target); // Stop observing once faded in
+            }
+        });
+    }, observerOptions);
 
-function appendNumber(number) {
-    if (number === '.' && currentInput.includes('.')) return;
-    if (currentInput === '0' && number !== '.') {
-        currentInput = number;
-    } else {
-        currentInput += number;
-    }
-    updateDisplay();
-}
+    // Select elements to animate
+    const cards = document.querySelectorAll('.card');
+    const aboutCard = document.querySelector('.about-card');
 
-function setOperator(op) {
-    if (currentInput === '0' && previousInput === '') return;
-    if (operator !== null) calculate();
-    operator = op;
-    previousInput = currentInput;
-    currentInput = '0';
-    updateDisplay();
-}
+    // Set initial styles for animation
+    const setInitialStyles = (element) => {
+        if(element) {
+            element.style.opacity = 0;
+            element.style.transform = "translateY(30px)";
+            element.style.transition = "opacity 0.6s ease-out, transform 0.6s ease-out";
+            observer.observe(element);
+        }
+    };
 
-function clearDisplay() {
-    currentInput = '0';
-    previousInput = '';
-    operator = null;
-    updateDisplay();
-}
-
-function calculate() {
-    let result;
-    const prev = parseFloat(previousInput);
-    const curr = parseFloat(currentInput);
-    if (isNaN(prev) || isNaN(curr)) return;
-
-    switch (operator) {
-        case '+': result = prev + curr; break;
-        case '-': result = prev - curr; break;
-        case '*': result = prev * curr; break;
-        case '/': result = curr === 0 ? "Error" : prev / curr; break;
-        default: return;
-    }
-
-    currentInput = result.toString();
-    operator = null;
-    previousInput = '';
-    updateDisplay();
-}
-
-function toggleSign() {
-    currentInput = (parseFloat(currentInput) * -1).toString();
-    updateDisplay();
-}
-
-function appendPercentage() {
-    currentInput = (parseFloat(currentInput) / 100).toString();
-    updateDisplay();
-}
+    cards.forEach(setInitialStyles);
+    setInitialStyles(aboutCard);
+});
