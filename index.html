@@ -3,41 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>macOS Calculator</title>
+    <title>Soft Loops | Handmade Crochet</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="calculator">
-        <div class="display">
-            <div id="previous-operand"></div>
-            <div id="current-operand">0</div>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Soft Loops</h1>
+            <p>Handmade crochet pieces, crafted with care and a modern touch.</p>
+            <a href="#portfolio" class="btn">View Collection</a>
         </div>
-        <div class="buttons">
-            <button class="btn light-gray" onclick="clearDisplay()">AC</button>
-            <button class="btn light-gray" onclick="toggleSign()">+/-</button>
-            <button class="btn light-gray" onclick="appendPercentage()">%</button>
-            <button class="btn orange" onclick="setOperator('/')">÷</button>
-            
-            <button class="btn dark-gray" onclick="appendNumber('7')">7</button>
-            <button class="btn dark-gray" onclick="appendNumber('8')">8</button>
-            <button class="btn dark-gray" onclick="appendNumber('9')">9</button>
-            <button class="btn orange" onclick="setOperator('*')">×</button>
-            
-            <button class="btn dark-gray" onclick="appendNumber('4')">4</button>
-            <button class="btn dark-gray" onclick="appendNumber('5')">5</button>
-            <button class="btn dark-gray" onclick="appendNumber('6')">6</button>
-            <button class="btn orange" onclick="setOperator('-')">−</button>
-            
-            <button class="btn dark-gray" onclick="appendNumber('1')">1</button>
-            <button class="btn dark-gray" onclick="appendNumber('2')">2</button>
-            <button class="btn dark-gray" onclick="appendNumber('3')">3</button>
-            <button class="btn orange" onclick="setOperator('+')">+</button>
-            
-            <button class="btn dark-gray zero" onclick="appendNumber('0')">0</button>
-            <button class="btn dark-gray" onclick="appendNumber('.')">.</button>
-            <button class="btn orange" onclick="calculate()">=</button>
+    </header>
+
+    <section id="portfolio" class="showcase">
+        <h2>Featured Creations</h2>
+        <div class="gallery">
+            <div class="card">
+                <div class="card-img placeholder-1">🧶 Image Here</div>
+                <div class="card-info">
+                    <h3>Cozy Amigurumi Bear</h3>
+                    <p>Soft, huggable, and made with 100% cotton yarn.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img placeholder-2">🧣 Image Here</div>
+                <div class="card-info">
+                    <h3>Autumn Sunset Scarf</h3>
+                    <p>A warm gradient scarf perfect for chilly evenings.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img placeholder-3">👜 Image Here</div>
+                <div class="card-info">
+                    <h3>Chunky Tote Bag</h3>
+                    <p>Durable, stylish, and perfect for everyday use.</p>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="about-card">
+            <h2>About the Maker</h2>
+            <p>Hi! I'm the creator behind Soft Loops. I blend traditional crochet techniques with modern color palettes to create unique, high-quality handmade goods. Every single stitch is made with love, patience, and a passion for the craft.</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <h2>Let's Connect</h2>
+        <p>Follow my journey and see the latest drops!</p>
+        <div class="social-links">
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-pinterest"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-etsy"></i></a>
+        </div>
+        <p class="copyright">© 2026 Soft Loops Crochet. All rights reserved.</p>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
